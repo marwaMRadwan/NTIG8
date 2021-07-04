@@ -1,0 +1,5 @@
+review js basics
+functions 
+array methods
+using local storage
+working with objects
