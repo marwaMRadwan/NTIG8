@@ -36,7 +36,7 @@ checkUniqueBookTitle = (title) =>{
 
 getUserInputs = () =>{
     book = {
-        title: "1",
+        title: "3",
         status:false,
         Author:"2",
         numOfPage:100
@@ -46,16 +46,16 @@ getUserInputs = () =>{
     writeDataInLocalStorage(data)
 }
 
-//{ key: id, value:5} searchobj.key
+//{ key: id, val:5} searchobj.key
 searchBook= (searchObj)=>{
     const data = readAll()
     res =data.findIndex(single =>{
         return single[searchObj.key] == searchObj.val
     })
-    // console.log(res)
+    console.log(res)
     // x = undefined
     // console.log(!x)
-    if(res!=-1) return false
+    if(res==-1) return false
     return res
 }
 showSingleBook = ( searchObj) =>{
@@ -78,7 +78,7 @@ show = (searchObj = null) =>{
 delBook = (searchObj)=>{
     let book = searchBook(searchObj)
     console.log(book)
-    if(!book) return console.log('not found')
+    if(book === false) return console.log('not found')
     data = readAll()
     data.splice(book,1)
     writeDataInLocalStorage(data)
@@ -86,11 +86,23 @@ delBook = (searchObj)=>{
 
 editBook = (searchObj, newData)=>{
     let book = searchBook(searchObj)
-    if(!book) return console.log('not found')
-   
+    console.log(book)
+    if(book === false) return console.log('not found')
+    let data = readAll()
+    for (x in newData) {
+        // console.log(x, ' --> ', newData[x])
+        data[book][x] = newData[x]
+    }
+    // console.log(data[book])
+    writeDataInLocalStorage(data)
 }
 
-// delBook({key:"title", value:"1"})
+// delBook({key:"title", val:"2"})
 
-getUserInputs()
+// getUserInputs()
+
+editBook({key:"title", val:"1"}, {title:"new", status:"true"})
+
+
+
 
