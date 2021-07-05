@@ -26,24 +26,25 @@ changeStatus = (index) =>{
     allDivs[index].classList.toggle('bg-warning')
     allDivs[index].classList.toggle('bg-primary')
     tasks[index].status = !tasks[index].status
-
     saveAllTasks(tasks)
 } 
 showSingleTask = (element, i)=>{
-    const mainDiv = createCustomElements(p, 'div', 'col-4 p-3', '', []) 
+    const mainDiv = createCustomElements(p, 'div', 'col-4 p-3 y', '', []) 
     const mainDiv2 = createCustomElements(mainDiv, 'div', 'border border-3 border-primary m-3 p-3 x', '', []) 
     element.status? mainDiv2.classList.add('bg-warning'):mainDiv2.classList.add('bg-primary');
     createCustomElements(mainDiv2,'h3','',element.taskTitle, [])
     createCustomElements(mainDiv2,'span','',element.taskType, [])
     createCustomElements(mainDiv2,'p','',element.taskContent, [])
     btn1 = createCustomElements(mainDiv2,'button','btn btn-danger mx-2','delete', [])
-    btn1.addEventListener('click', function(e){ alert (i)})
+    btn1.addEventListener('click', function(e){ deletebtn(element.ind, e)})
     btn2 = createCustomElements(mainDiv2,'button','btn btn-warning mx-2','edit', [])
     btn2.addEventListener('click', function(e){ alert (i)})
     btn3 = createCustomElements(mainDiv2,'button','btn btn-primary mx-2','change status', [])
     btn3.addEventListener('click', function(e){ changeStatus(i) })
 }
+
 showAllTasks = () =>{
+    p.innerHTML = ""
 tasks.forEach((element, i) => {
 showSingleTask(element, i)
 });
@@ -55,8 +56,17 @@ saveAllTasks = ( ) =>{
     console.log(tasks)
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
+deletebtn = (ind, e) =>{
+    (e.target.parentNode).parentNode.remove()
+    tasks = tasks.filter(el=> el.ind!=ind)
+   saveAllTasks(tasks)
+
+}
 
 addTask = (task) =>{
+    tasks.length == 0 ? task.ind = 0: task.ind = tasks[tasks.length-1].ind+1;
+  //  console.log(task.ind)
+//    task.ind = tasks.length
     tasks.push(task)
     saveAllTasks()
     myAddForm.reset()
