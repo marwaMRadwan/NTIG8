@@ -12,10 +12,10 @@ showHide.addEventListener('click', function(e){
 
 document.querySelector('#form-div form').addEventListener('submit', function(e){
     e.preventDefault()
-    task = { status:false }
+    let task = { status:false }
     formHeads.forEach(h => {
             task[h]= this.elements[h].value
     })
     console.log(task)
+    addTask(task)
 })
-test()
