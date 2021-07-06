@@ -16,11 +16,34 @@ yargs.command({
         category:{
             require:true,
             type:'string'
+        },
+        authorEmail:{
+            type:'string'
         }
     },
     handler: function(argv) {
-        let book = { name: argv.name, category: argv.category}
+        let book = { name: argv.name, category: argv.category, authorEmail: argv.authorEmail}
         myFunctions.add(book)
+    }
+})
+
+yargs.command({
+    command:"readAllBooks",
+    handler:function(){
+        myFunctions.showAll()
+    }
+})
+yargs.command({
+    command:"showSingle",
+    describe: "add new Book",
+    builder:{
+        name:{
+            require:true,
+            type:'string'
+        }
+    },
+    handler: function(argv) {
+        myFunctions.showBookByName(argv.name)
     }
 })
 
