@@ -1,0 +1,6 @@
+[1,2,3,4]
+
+index = 1
+alldata[index]
+
+button edit(ind) => index 

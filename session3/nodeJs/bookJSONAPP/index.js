@@ -46,12 +46,29 @@ yargs.command({
         myFunctions.showBookByName(argv.name)
     }
 })
+yargs.command({
+    command:"editBook",
+    describe: "add new Book",
+    builder:{
+        name:{
+            type:'string',
+            demandOption:true
+        },
+        newName:{
+            type:'string'
+        },
+        newCategory:{
+            type:'string'
+        },
+        newAuthorEmail:{
+            type:'string'
+        }
+    },
+    handler: function(argv) {
+        let book = { name: argv.newName, category: argv.newCategory, authorEmail: argv.newAuthorEmail}
+        myFunctions.edit(argv.name,book)
+    }
+})
 
 //run yargs
 yargs.argv
-
-
-/*
-bookname : a - category: b
-bookname: b ....
-*/

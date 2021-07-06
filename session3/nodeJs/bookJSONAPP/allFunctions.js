@@ -52,8 +52,20 @@ const showBookByName = (bookName) =>{
     if(found ==-1) return console.log(chalk.red('not found'))
     console.log(chalk.blue(`${allBooks[found].name}`))
 }
+const edit = (name,book) => {
+    let allBooks = readMyBooksFile()
+    ind = searchBookByName(allBooks, name)
+    if(ind ==-1) 
+        return console.log(chalk.red('book not founde'))
+    for(element in book){
+        if(book[element]) allBooks[ind][element] = book[element]
+        // console.log(element, book[element])
+    }
+    saveMyBooks(allBooks)
+}
 module.exports = {
     add,
     showAll,
-    showBookByName
+    showBookByName,
+    edit
 }

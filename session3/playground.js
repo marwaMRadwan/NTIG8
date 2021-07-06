@@ -72,11 +72,11 @@
 
 //api read (fetch) https://jsonplaceholder.typicode.com/users
 const myApiCall = async(cb) =>{
-    let data = await fetch('https://jsonplaceholder.typicode.com/users')
-    let x = await data.json()
+    let data = await(await fetch('https://jsonplaceholder.typicode.com/users')).json()
+    //let x = await data.json()
     // return(x)
     //console.log(x)
-    cb(x)
+    cb(data)
     ////////////////////
 }
 myApiCall(data=> console.log(data))
