@@ -2,7 +2,7 @@ const express = require('express')
 const hbs = require('hbs')
 const path = require('path')
 
-const myRoutes = require('../routes/myroutes')
+const myRoutes = require('../routes/myroutes.route')
 const app = express()
 app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, '../public')))

@@ -1,0 +1,6 @@
+lang 1=> en, 2 =>ar
+all article
+http://medical.mind-techs.com/api/blog/{{langId}}/0/11
+
+single article
+http://medical.mind-techs.com/api/SingleBlog/{{articleID}}/{{langId}}
