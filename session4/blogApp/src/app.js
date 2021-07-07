@@ -4,5 +4,9 @@ const path = require('path')
 
 const myRoutes = require('../routes/myroutes')
 const app = express()
+app.set('view engine', 'hbs')
+app.use(express.static(path.join(__dirname, '../public')))
+app.set('views', path.join(__dirname, '../frontend/views'))
+hbs.registerPartials( path.join(__dirname, '../frontend/layouts'))
 app.use(myRoutes)
 module.exports = app
