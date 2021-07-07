@@ -2,7 +2,7 @@ const express= require('express')
 const app = express()
 const path = require('path')
 const PORT = process.env.PORT
-
+let test =5
 const myPublicDir = path.join(__dirname, 'public')
 app.use(express.static(myPublicDir))
 
@@ -23,6 +23,5 @@ app.get('', (req, res)=>{
 app.get('/x/y', (req, res)=>{
     res.render('home')
 })
-
 
 app.listen(PORT, ()=> console.log(`hello on localhost:${PORT}`))
