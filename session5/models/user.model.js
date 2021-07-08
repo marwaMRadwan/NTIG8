@@ -32,5 +32,12 @@ const User = mongoose.model('User', {
         lowercase:true,
         enum:['male', 'female']
     }
+    // ,
+    // c:[
+    //     {
+    //         name:{},
+    //         age:{}
+    //     }
+    // ]
 })
 module.exports=User

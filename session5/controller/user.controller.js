@@ -85,5 +85,18 @@ deleteuser = async(req,res)=>{
         })
     }
 }
-
-module.exports = { add, allUsers, singleUser, deleteuser }
+editUser = async(req, res)=>{
+    //name, password
+    const myAllowedUpdates = ['name', 'password']
+    const updates = Object.keys(req.body)
+    isValid = updates.every(up => myAllowedUpdates.includes(up))
+    if(!isValid) res.status(500).send('not avaliable')
+    try{
+        const user = await userModel.findByIdAndUpdate(req.params.id, req.body, {runValidators:true, new:true})
+        if(!user) res.send('not found')
+        res.send('done')}
+    catch(e){
+        res.send(e)
+    }
+}
+module.exports = { add, allUsers, singleUser, deleteuser , editUser}
