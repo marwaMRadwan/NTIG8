@@ -1,4 +1,9 @@
 const app = require('./src/app')
+// const jwt = require('jsonwebtoken')
+// _id='123456'
+// x = jwt.sign({_id:_id.toString()}, 'test')
+// console.log(x)
+// console.log( jwt.verify(x, 'test') )
 app.listen(process.env.PORT)
 
 
