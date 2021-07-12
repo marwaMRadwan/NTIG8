@@ -5,6 +5,14 @@ const User = require('../database/models/user.model')
 router.post('/user/register', async (req,res)=>{
     try{
         const userData = new User(req.body)
+        /*
+        new User({
+"name":"marwa",
+"email":"marwa@test.com",
+"password":"123456",
+"x":"7"
+})
+        */
         await userData.save()
         res.send('done')
     }

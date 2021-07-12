@@ -53,15 +53,37 @@ const userSchema = new mongoose.Schema({
 // hide some data
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
-    deletedElements = ["password", "tokens"]
+    deletedElements = [ "tokens"]
     deletedElements.forEach(element => {
         delete user[element]
     });
     return user
 }
 // bcrypt password
+userSchema.pre('save', async function(){
+    const user = this
+    if(user.isModified('password'))
+        user.password = await bcrypt.hash(user.password,parseInt(process.env.SALT))
+})
 //login
+userSchema.statics.findByCreditionals = async(email, password)=>{
+    const user = await User.findOne({email})
+    if(!user) throw new Error('invalid email')
+    const isValid = await bcrypt.compare(password, user.password)
+    if(!isValid) throw new Error('invalid password')
+    return user
+}
 //generate token
+userSchema.methods.generateToken = async function(){
+    const user = this
+    const token = jwt.sign({_id:user._id}, process.env.JWTKEY)
+    user.tokens = user.tokens.concat({token})
+    await user.save()
+    return token
+}
 //relation
+
+//cascade relations
+
 const User = mongoose.model('User', userSchema)
 module.exports = User
