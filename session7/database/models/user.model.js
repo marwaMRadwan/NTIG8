@@ -44,6 +44,14 @@ const userSchema = new mongoose.Schema({
             }
         }
     ],
+    otp:{
+        type:String,
+        default: Date.now()
+    },
+    userStatus:{
+        type:Boolean,
+        default:false
+    },
     // role:{},
     tokens:[{
         token:{type:String}
@@ -52,7 +60,7 @@ const userSchema = new mongoose.Schema({
 // hide some data
 userSchema.methods.toJSON = function(){
     const user = this.toObject()
-    deletedElements = [ "tokens"]
+    deletedElements = [ ]
     deletedElements.forEach(element => {
         delete user[element]
     });
