@@ -19,5 +19,20 @@ class TaskClass{
             })
         }
     }
+    static getMyTasks = async(req,res)=>{
+        try{
+            await req.user.populate({
+                path:"userTasks"
+            }).execPopulate()
+            res.status(200).send({
+                data: {user:req.user, tasks:req.user.userTasks}
+            })
+        }
+        catch(e){
+            res.status(500).send({
+                data:e.message
+            })
+        }
+    }
 }
 module.exports = TaskClass

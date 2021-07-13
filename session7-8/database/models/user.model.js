@@ -89,7 +89,11 @@ userSchema.methods.generateToken = async function(){
     return token
 }
 //relation
-
+userSchema.virtual('userTasks', {
+    ref:"Task",
+    localField:"_id",
+    foreignField:"userId"
+})
 //cascade relations
 
 const User = mongoose.model('User', userSchema)

@@ -4,5 +4,5 @@ const taskController = require('../app/controllers/task.controller')
 const auth = require('../app/middleware/auth')
 
 router.post('/task/add', auth, taskController.add)
-
+router.get('/task/me', auth, taskController.getMyTasks)
 module.exports=router
