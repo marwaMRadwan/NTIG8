@@ -1,3 +1,4 @@
+
 const userModel = require('../models/user.model')
 add = async(req,res)=>{
     try{

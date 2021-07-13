@@ -1,8 +1,11 @@
 const multer = require('multer')
 const path = require('path')
+const fs = require('fs')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads')
+        const loc = path.join('uploads', (req.user._id).toString())
+        fs.mkdir(loc, (err) => { if (err) return;});
+        cb(null, loc)
     },
     filename: function (req, file, cb) {
         // console.log(req.user._id)
