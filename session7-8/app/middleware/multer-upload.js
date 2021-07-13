@@ -1,18 +1,28 @@
 const multer = require('multer')
+const path = require('path')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads')
     },
     filename: function (req, file, cb) {
-        console.log(req.user._id)
-        cb(null, file.fieldname + '-' + Date.now()+'.'+(file.originalname.split('.')).pop())
+        // console.log(req.user._id)
+        cb(null, file.fieldname + '-' + Date.now()+path.extname(file.originalname))
     }
 })
 const upload = multer({ 
     storage: storage ,
     limits: { 
         fileSize: 150000 
-    }
+    },
+    fileFilter: function (req, file, callback) {
+        let fType = "."+req.body.fileType
+        // console.log(fType)
+        var ext = path.extname(file.originalname);
+        if(ext != fType) {
+            return callback(new Error('invalid extension'))
+        }
+        callback(null, true)
+    },
 })
 
 module.exports = upload
