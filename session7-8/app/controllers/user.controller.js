@@ -119,6 +119,13 @@ class Userx{
     res.send(e)
         }
     }
+    static profileImage = async (req, res) =>{
+        req.user.image = req.file.path
+        await req.user.save()
+        res.send({
+            data: req.user
+        })
+   }
 }
 
 module.exports = Userx
