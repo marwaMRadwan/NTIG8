@@ -9,7 +9,7 @@ app.use(cors())
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-app.use(userRoutes)
-app.use(taskRoutes)
+app.use('/user',userRoutes)
+app.use('/task',taskRoutes)
 
 module.exports = app

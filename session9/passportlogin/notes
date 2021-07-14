@@ -1,0 +1,11 @@
+npm i express-generator -g
+express pro
+
+ change directory:
+     > cd passportlogin
+
+   install dependencies:
+     > npm install
+
+   run the app:
+     > SET DEBUG=passportlogin:* & npm start
