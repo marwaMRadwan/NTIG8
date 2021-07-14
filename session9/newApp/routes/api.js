@@ -17,4 +17,29 @@ router.post('/signup', async (req,res)=>{
     catch(e){res.send(e.message)}
 })
 
+router.post('/login', async(req,res)=>{
+    try{
+        user =await User.findOne({userName: req.body.userName})
+        if(!user) res.send('not found')
+        user.comparePassword(req.body.password, function(err, isMatch){
+            if(isMatch && !err) {
+                const token = jwt.sign(user.toJSON(), config.secret)
+                res.send({
+                    token: 'jwt '+ token
+                })
+            }
+            else res.send(err)
+        })
+        // res.send(result)
+
+
+    }
+    catch(e){
+        res.send(e.message)
+    }
+})
+
+router.post('/add', passport.authenticate('jwt', {session:false}), async(req,res)=>{
+    res.send('test')
+})
 module.exports=router
