@@ -5,7 +5,11 @@ const userSchema = new mongoose.Schema({
     password:{type:String, required:true, trim:true},
     role:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Myroles'
+        ref: 'Myroles',
+        default:"60eff633f054353ab040bc57"
+    },
+    token:{
+        type:String
     }
 })
 

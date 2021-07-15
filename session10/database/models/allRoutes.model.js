@@ -8,3 +8,4 @@ const routesSchema = new mongoose.Schema({
 })
 
 const Myroutes = mongoose.model('Myroutes', routesSchema)
+module.exports = Myroutes
