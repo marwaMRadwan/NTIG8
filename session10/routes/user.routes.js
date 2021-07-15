@@ -75,7 +75,16 @@ router.patch('/me', auth, async(req,res)=>{
 })
 router.get('/all', async(req,res)=>{
     try{
-        data = await User.find()
+        let s = {}
+        //sortBy=name:desc
+        if(req.query.sortBy){
+            sortData = req.query.sortBy.split(':')
+            s[sortData[0]] = sortData[1]=='desc'?-1:1
+        }
+        // res.send(s)
+        limit = Number(req.query.limit)
+        page = Number(req.query.pagenum)*limit
+        data = await User.find().limit(limit).skip(page).sort(s)
         res.send(data)
     }
     catch(e){
@@ -86,3 +95,14 @@ router.get('/test',auth, async(req,res)=>{
     res.send(req.user)
 })
 module.exports = router
+
+/*
+req.user.populate({
+    path:'rel',
+    options:{
+        limit:5,
+        skip:page*5
+    }
+})
+
+*/

@@ -16,4 +16,12 @@ devid => question app
 mahmoud ibrahem => medical service
 
 ali + eslam ahmed =>
-====> youmna => corona
+
+
+users => reg, login (mac address), logout, logout all, edit profile, edit password, forget password( send email) , roles 
+
+multi level auth => roles
+
+product => crud + interaction 
+
+reports => all registered users from date to another
