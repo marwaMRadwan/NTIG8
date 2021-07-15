@@ -15,6 +15,6 @@ role => _id, name, [routes]
 routes => url
 
 
-user => username, password, user type
-allRoutes => link, [user types]
+user => username, password, user type => done
+allRoutes => link, [user types] => assign role to route
 roles => type 

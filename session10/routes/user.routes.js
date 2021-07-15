@@ -28,6 +28,26 @@ router.post('/login', async(req,res)=>{
         res.send(e)
     }
 })
+router.get('/me',auth, async(req,res)=>{
+    res.send(req.user)
+})
+router.post('/logout', auth, async(req,res)=>{
+    try{ 
+        req.user.token =""
+        await req.user.save()
+        res.send('logged out')
+    }
+    catch(e){ res.send(e) }
+})
+router.delete('/deleteAccount', auth, async(req,res)=>{
+    try{
+        await req.user.remove()
+        res.send('deleted')
+    }
+    catch(e){
+        res.send(e)
+    }
+})
 router.post('/assignRole',auth, async(req,res)=>{
     try{
         // user = req.user
@@ -39,5 +59,30 @@ router.post('/assignRole',auth, async(req,res)=>{
     catch(e){
         res.send(e)
     }
+})
+router.patch('/me', auth, async(req,res)=>{
+    try{
+        for( x in req.body){
+            req.user[x] = req.body[x]
+            // console.log(x, req.body[x])
+        }
+        req.user.save()
+        res.send('done')
+    }
+    catch(e){
+        res.send(e)
+    }
+})
+router.get('/all', async(req,res)=>{
+    try{
+        data = await User.find()
+        res.send(data)
+    }
+    catch(e){
+        res.send(e)
+    }
+})
+router.get('/test',auth, async(req,res)=>{
+    res.send(req.user)
 })
 module.exports = router

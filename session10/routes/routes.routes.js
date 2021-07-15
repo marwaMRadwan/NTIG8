@@ -21,4 +21,17 @@ router.get('/all', async(req,res)=>{
         res.send(e)
     }
 })
+router.post('/addRole/:id', async(req,res)=>{
+    try{
+        _id = req.params.id
+        role = req.body.role
+        let r = await Myroutes.findById(_id)
+        r.roles = r.roles.concat(role)
+        await r.save()
+        res.send(r)
+    }
+    catch(e){
+        res.send(e)
+    }
+} )
 module.exports = router
