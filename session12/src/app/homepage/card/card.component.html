@@ -1,7 +1,29 @@
 <section class="container my-5">
-    <div class="row">
+    <!-- <div class="row">
+        <input class="form-control" [(ngModel)]="dayId">
+        <div [ngSwitch]="dayId"> -->
+            <!-- <div *ngSwitchCase="'0'">Sat</div>
+            <div *ngSwitchCase="'1'">Sun</div>
+            <div *ngSwitchCase="'2'">Mon</div>
+            <div *ngSwitchCase="'3'">tue</div>
+            <div *ngSwitchCase="'4'">wed</div>
+            <div *ngSwitchCase="'5'">thr</div>
+            <div *ngSwitchCase="'6'">fri</div> -->
+            <!-- <ng-container *ngFor="let d of days; let i=index">
+                <div *ngSwitchCase="i">{{d}}</div>                
+            </ng-container>
+            <div *ngSwitchDefault>no data (invalid day id)</div>
+
+        </div>
+    </div> -->
+
+
+    <!-- <div class="row">
         <input class="form-control" [(ngModel)]="val" (keyup)="filterDate()">
-        <div class="col-4" *ngFor="let item of posts; let i=index">
+        <div class="alert alert-danger" *ngIf="showPosts.length==0">
+            no data to show
+        </div>
+        <div class="col-4" *ngFor="let item of showPosts; let i=index">
             <div class="m-2 p-2 border border-2 border-danger" 
             [ngClass]="{'alert':true, 'alert-danger':!item.completed,'alert-success':item.completed }">
                 <h4>{{item.id}} - {{item.title}}</h4>
@@ -10,7 +32,7 @@
                 <button class="btn btn-danger" (click)="handeldel(i)">delete</button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- <table class="table">
         <tr *ngFor="let item of posts; let i=index; let o=odd; let e=even; let f=first; let l=last"
         [ngClass]="{odd:o, even:e, first:f, last:l}">
@@ -19,5 +41,14 @@
             <td>{{item.title}}</td>
         </tr>
     </table> -->
+<button (click)="handleClick()">click</button>
+
+<div *ngIf="status;then myThenBox; else myElseBox">if true</div>
+<ng-template #myElseBox>
+    <div>if false</div>
+</ng-template>
+<ng-template #myThenBox>
+    <div>if then</div>
+</ng-template>
 </section>
 
