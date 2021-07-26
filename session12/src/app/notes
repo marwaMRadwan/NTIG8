@@ -1,0 +1,16 @@
+install => npm i -g @angular/cli
+
+new application => ng new myapp
+
+create component => ng g c compName
+
+homepage => app component
+    - navbar   ng g c homepage/nav
+    - slider   ng g c homepage/slider
+    - cards    ng g c homepage/card
+    - form        ng g c homepage/contactus
+    - footer       ng g c homepage/footer
+
+    *edit in app.component.html 
+
+    
