@@ -6,7 +6,6 @@ import { Post } from 'src/app/interfaces/post'
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
   posts: Post[] = [
     {
     userId: 1,
@@ -129,9 +128,17 @@ export class CardComponent implements OnInit {
     completed: true
     }
     ]
+    val:string=""
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  handeldel(i:number):void{
+    this.posts.splice(i,1)
+    // console.log(i)
+    // console.log(this.posts)
+  }
+  filterDate(){
+    console.log(this.val)
+  }
 }
