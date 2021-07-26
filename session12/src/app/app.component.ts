@@ -40,7 +40,7 @@ export class AppComponent {
 // }
 // v=""
 
-myData=""
+// myData=""
 
 
 }

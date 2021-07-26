@@ -13,4 +13,6 @@ homepage => app component
 
     *edit in app.component.html 
 
-    
+==> import {FormsModule} from "@angular/forms" to use two way binding
+
+ng g interface interName

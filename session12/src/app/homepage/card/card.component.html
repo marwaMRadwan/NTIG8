@@ -1,1 +1,14 @@
-<p>card works!</p>
+<section class="container my-5">
+    <div class="row">
+
+        <div class="col-4" *ngFor="let item of posts">
+            <div class="m-2 p-2 border border-2 border-danger" 
+            [ngClass]="{'alert':true, 'alert-danger':!item.completed,'alert-success':item.completed }">
+                <h4>{{item.title}}</h4>
+                <h4>{{item.completed? 'done':'not'}}</h4>
+                <h5>{{item.userId}}</h5>
+            </div>
+        </div>
+
+    </div>
+</section>
