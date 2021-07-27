@@ -9,15 +9,17 @@ import { AllComponent } from './posts/all/all.component';
 import { SingleComponent } from './posts/single/single.component';
 
 const routes: Routes = [
-  {path:"posts", component:AllComponent, children:[
+  {path:"posts",  children:[
+    {path:"", component:AllComponent},
     {path:":id", component:SingleComponent},
   ]},
   {path:"",redirectTo:"home",pathMatch:"full"},
   {path:"home", component:HomeComponent},
   {path:"doctors", component:DoctorsComponent},
   {path:"register", component:RegisterComponent},
-  {path:"user",component:DCompComponent, 
+  {path:"user", 
     children:[
+      {path:"",component:DCompComponent},
       {path:":id", component:DCompComponent}
     ]
   }

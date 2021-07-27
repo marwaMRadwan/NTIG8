@@ -15,6 +15,9 @@ import { Err404Component } from './pages/err404/err404.component';
 import { DCompComponent } from './d-comp/d-comp.component';
 import { AllComponent } from './posts/all/all.component';
 import { SingleComponent } from './posts/single/single.component';
+import { RolesComponent } from './doctors/roles/roles.component';
+import { ProviderComponent } from './doctors/provider/provider.component';
+import { SingledoctorComponent } from './doctors/singledoctor/singledoctor.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { SingleComponent } from './posts/single/single.component';
     Err404Component,
     DCompComponent,
     AllComponent,
-    SingleComponent
+    SingleComponent,
+    RolesComponent,
+    ProviderComponent,
+    SingledoctorComponent
   ],
   imports: [
     BrowserModule,

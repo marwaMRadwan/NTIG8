@@ -7,14 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class PostsService {
   // public x = [1,2,3]
+  mainRoute="https://jsonplaceholder.typicode.com/posts"
   constructor(private _http:HttpClient) {}
 
   getAllPost():Observable<any>{
-    return this._http.get('https://jsonplaceholder.typicode.com/posts')
+    return this._http.get(`${this.mainRoute}`)
   }
 
   getSinglePost(id:any):Observable<any>{
-    return this._http.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    return this._http.get(`${this.mainRoute}/${id}`)
   }
 
 }
