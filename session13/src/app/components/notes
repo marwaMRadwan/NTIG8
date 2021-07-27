@@ -1,7 +1,7 @@
 pipes
 input (@Input decorator)
 output (ref var)
-routing ( paths, redirect to, add module, dynamic route, wild card route, )
+routing ( paths, redirect to, add module, dynamic route, wild card route, childern)
 template driven from
 reactive from
 service (api call) (dependency injection)

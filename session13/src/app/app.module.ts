@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { XRoutingRoutingModule } from './x-routing/x-routing-routing.module'
@@ -12,6 +13,8 @@ import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { HomeComponent } from './pages/home/home.component';
 import { Err404Component } from './pages/err404/err404.component';
 import { DCompComponent } from './d-comp/d-comp.component';
+import { AllComponent } from './posts/all/all.component';
+import { SingleComponent } from './posts/single/single.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +25,15 @@ import { DCompComponent } from './d-comp/d-comp.component';
     DoctorsComponent,
     HomeComponent,
     Err404Component,
-    DCompComponent
+    DCompComponent,
+    AllComponent,
+    SingleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     XRoutingRoutingModule,
+    HttpClientModule
     //RouterModule.forRoot(appRoutes)
   ],
   providers: [],

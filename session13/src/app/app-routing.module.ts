@@ -5,8 +5,13 @@ import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { Err404Component } from './pages/err404/err404.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AllComponent } from './posts/all/all.component';
+import { SingleComponent } from './posts/single/single.component';
 
 const routes: Routes = [
+  {path:"posts", component:AllComponent, children:[
+    {path:":id", component:SingleComponent},
+  ]},
   {path:"",redirectTo:"home",pathMatch:"full"},
   {path:"home", component:HomeComponent},
   {path:"doctors", component:DoctorsComponent},
