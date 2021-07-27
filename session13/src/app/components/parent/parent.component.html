@@ -1,3 +1,5 @@
 <p>parent works!</p>
-<app-child [x]=a></app-child>
+<app-child #c [x]=a ></app-child>
 <button (click)="add()">add</button>
+
+{{c.y}}

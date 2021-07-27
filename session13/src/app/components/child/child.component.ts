@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
   @Input() x:number = 0
+  @Input() z:number=0
+  y = 8
   constructor() { }
 
   ngOnInit(): void {

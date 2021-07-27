@@ -1,0 +1,7 @@
+pipes
+input (@Input decorator)
+output (ref var)
+routing
+template driven from
+reactive from
+service (api call) (dependency injection)
