@@ -7,8 +7,9 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  emailUsedBefore = false
   userData:any = {
-    name:"marwa",
+    name:"",
     password:"",
     dateOfBirth:"",
     email:"",
@@ -18,11 +19,15 @@ export class RegisterComponent implements OnInit {
   }
   constructor(private _user:UserService) { }
   ngOnInit(): void { }
-  handleRegister(){
-    console.log(this.userData)
-    this._user.register(this.userData).subscribe(res=>{
-      console.log(res)
-    })
+  handleRegister(register:NgForm){
+    if(register.valid){
+      console.log(this.userData)
+      this._user.register(this.userData).subscribe(res=>{
+        if(res.error.email) this.emailUsedBefore=true
+        console.log(res)
+      })
+      register.resetForm()  
+    }
   }
   reset(e:Event, reg:NgForm){
     // e.preventDefault()

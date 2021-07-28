@@ -7,10 +7,24 @@
         valid: {{register.valid}}<br>  
         invalid: {{register.invalid}}    
     </div> -->
-    <form #register="ngForm" (ngSubmit)="handleRegister()">
+    <form #register="ngForm" (ngSubmit)="handleRegister(register)">
         <div class="row pb-3">
             <div class="col-6">
-                <input name="name" placeholder="enter your name" class="form-control" #name="ngModel" required [(ngModel)]="userData.name" >
+                <input name="name" placeholder="enter your name" class="form-control" #name="ngModel" 
+                required minlength="5" maxlength="20" 
+                [(ngModel)]="userData.name" >
+                <div class='alert alert-danger' *ngIf="name.invalid && (register.submitted || name.dirty)">
+                    <!-- {{name.errors|json}} -->
+                    <div *ngIf="name.errors?.required">
+                        name is required
+                    </div>
+                    <div *ngIf="name.errors?.minlength">
+                        min len 5
+                    </div>
+                    <div *ngIf="name.errors?.maxlength">
+                        max length 20
+                    </div>
+                </div>
                 <!-- <div class="alert alert-primary">
                     value: {{name.value}}<br>
                     touched: {{name.touched}}<br>
@@ -20,7 +34,10 @@
                 </div> -->
             </div>
             <div class="col-6">
-                <input name="email" placeholder="enter your email" class="form-control"  [(ngModel)]="userData.email">
+                <input name="email" placeholder="enter your email" class="form-control" email required [(ngModel)]="userData.email">
+                <div class="alert alert-danger" *ngIf="emailUsedBefore">
+email used before
+                </div>
             </div>
         </div>
         <div class="row pb-3">
@@ -44,7 +61,7 @@
         <!-- <input type="checkbox" name="Check"  [(ngModel)]="userData.gender" #x='ngModel' required>
         <div *ngIf="!x.touched ">invalid</div> -->
         <div>
-            <button class="btn btn-success">register</button>
+            <button class="btn btn-success" >register</button>
             <button class="btn btn-danger" (click)="reset($event,register)" type="button">reset</button>
         </div>
 
