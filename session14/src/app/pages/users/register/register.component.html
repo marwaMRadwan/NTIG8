@@ -55,7 +55,9 @@ email used before
                 <input name="gender" type="radio" value="1" class="form-check-input" [(ngModel)]="userData.gender"> Female
             </div>
             <div class="col-6">
-                <input name="dateOfBirth" type="date" class="form-control" [(ngModel)]="userData.dateOfBirth">
+                <input name="dateOfBirth" type="text" class="form-control" #dob="ngModel" [(ngModel)]="userData.dateOfBirth">
+                <div *ngIf="dob.invalid">
+                </div>
             </div>
         </div>
         <!-- <input type="checkbox" name="Check"  [(ngModel)]="userData.gender" #x='ngModel' required>

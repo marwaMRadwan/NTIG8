@@ -1,1 +1,11 @@
 <p>profile works!</p>
+<form [formGroup]="contactus" (ngSubmit)="handleSubmit()">
+    <input placeholder="name" formControlName="name">
+    <div *ngIf="name?.invalid">
+
+    </div>
+    <input placeholder="email" formControlName="email">
+    <input placeholder="phone" formControlName="phone">
+    <input placeholder="message" formControlName="message">
+<button >add</button>
+</form>
