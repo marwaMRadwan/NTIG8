@@ -1,1 +1,11 @@
-<p>all works!</p>
+<section class="container">
+    <div class="row">
+        <img src="assets/loading.gif" *ngIf= "!isLoaded; else imgdata">
+        <ng-template #imgdata>
+            <div class="col-3" *ngFor="let d of data" >
+                <img [src]="d.url" class="img-fluid">
+            </div>
+        </ng-template>
+        
+    </div>
+</section>

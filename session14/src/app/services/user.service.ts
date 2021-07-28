@@ -11,4 +11,8 @@ export class UserService {
   register(userData:any):Observable<any>{
     return this._http.post('http://medical.mind-techs.com/api/auth/signUp',userData)
   }
+
+  getImages():Observable<any>{
+    return this._http.get('https://jsonplaceholder.typicode.com/photos?_limit=500')
+  }
 }
