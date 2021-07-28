@@ -1,18 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgForm } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  userData:any = {
+    name:"marwa",
+    password:"",
+    dateOfBirth:"",
+    email:"",
+    gender:1,
+    phone:"",
+    role:1
   }
-
-  handleRegister(userData:any){
-    console.log(userData.value)
+  constructor(private _user:UserService) { }
+  ngOnInit(): void { }
+  handleRegister(){
+    console.log(this.userData)
+    this._user.register(this.userData).subscribe(res=>{
+      console.log(res)
+    })
+  }
+  reset(e:Event, reg:NgForm){
+    // e.preventDefault()
+    reg.resetForm()
   }
 }
