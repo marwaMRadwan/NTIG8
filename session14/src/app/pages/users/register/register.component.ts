@@ -12,4 +12,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleRegister(userData:any){
+    console.log(userData.value)
+  }
 }

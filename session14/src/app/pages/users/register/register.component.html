@@ -1,1 +1,49 @@
-<p>register works!</p>
+<section class="my-3 container">
+    <h2>Register Patient</h2>
+    <div class="alert alert-primary">
+        value: {{register.value|json}}<br>
+        touched: {{register.touched}} <br>
+        submitted: {{register.submitted}}  <br>
+        valid: {{register.valid}}<br>  
+        invalid: {{register.invalid}}    
+    </div>
+    <form #register="ngForm" (ngSubmit)="handleRegister(register)">
+        <div class="row pb-3">
+            <div class="col-6">
+                <input name="name" placeholder="enter your name" class="form-control" #name="ngModel" required ngModel>
+                <div class="alert alert-primary">
+                    value: {{name.value}}<br>
+                    touched: {{name.touched}}<br>
+                    dirty: {{name.dirty}}<br>
+                    valid: {{name.valid}}<br>
+                    invalid: {{name.invalid}}
+                </div>
+            </div>
+            <div class="col-6">
+                <input name="email" placeholder="enter your email" class="form-control"  ngModel>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-6">
+                <input name="password" placeholder="enter your password" class="form-control" ngModel>
+            </div>
+            <div class="col-6">
+                <input name="phone" placeholder="enter your phone" class="form-control" ngModel>
+            </div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-6" >
+                <label class="form-check-label">Gender: </label> 
+                <input name="gender" type="radio" value="0" class="form-check-input" ngModel> Male
+                <input name="gender" type="radio" value="1" class="form-check-input" ngModel> Female
+            </div>
+            <div class="col-6">
+                <input name="dateOfBirth" type="date" class="form-control" ngModel>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-success">register</button>
+        </div>
+
+    </form>
+</section>
