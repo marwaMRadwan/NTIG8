@@ -6,13 +6,17 @@ import { Observable } from 'rxjs';
 })
 export class GlobalService {
   public loginFlag = false
-  commonUrl = `http://localhost:3000/user/`
+  commonUrl = `http://medical.mind-techs.com/api/auth/`
   constructor(private _http:HttpClient) { }
 
   login(user:any):Observable<any>{
     return this._http.post(`${this.commonUrl}login`, user)
   }
   me():Observable<any>{
-    return this._http.post(`${this.commonUrl}me`,null)
+    return this._http.post(`${this.commonUrl}me`,{"lang" : 1})
+  }
+
+  updateFileUser(data:any):Observable<any>{
+    return this._http.post('http://medical.mind-techs.com/api/auth/updatePatientFile',data)
   }
 }

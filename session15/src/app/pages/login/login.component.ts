@@ -32,7 +32,7 @@ isLoginSubmitted = false
       // this.msg = this.userData.value.email + " " + this.userData.value.password
       this._user.login(this.userData.value).subscribe(
         (response) => {
-          localStorage.setItem('token', response.data.token)
+          localStorage.setItem('token', response.access_token)
           this._user.loginFlag=true
       },
       (e)=>{

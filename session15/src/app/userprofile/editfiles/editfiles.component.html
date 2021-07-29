@@ -1,0 +1,6 @@
+<div class="alert alert-primary">
+    <form #upload="ngForm" (ngSubmit)="upFile(upload)">
+        <input type="file" class="form-control" name="files" (change)="handleFile($event)">
+        <button class="btn btn-success">Upload file</button>
+    </form>
+</div>

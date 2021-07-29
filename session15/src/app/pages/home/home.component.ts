@@ -10,9 +10,13 @@ import { GlobalService } from 'src/app/services/global.service';
 })
 export class HomeComponent implements OnInit {
 
+  userData =null
   constructor(private toastr: ToastrService, public _global:GlobalService, private _router:Router) {
     _global.me().subscribe(
-      data=>console.log(data),
+      data=>{
+        console.log(data)
+        this.userData = data
+      },
       (e)=>  _router.navigate(['/login'])
 
       )

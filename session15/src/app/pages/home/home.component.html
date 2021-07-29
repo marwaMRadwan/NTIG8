@@ -1,1 +1,10 @@
-<p>home works!</p>
+
+{{userData|json}}
+<section class="my-3 container">
+    <tabset [justified]="true">
+        <tab heading="Edit Profile"><app-edit></app-edit></tab>
+        <tab heading="Edit User Files"><app-editfiles></app-editfiles></tab>
+        <tab heading="Add Dependent"><app-adddependent></app-adddependent></tab>
+        <tab heading="Load Reservation"><app-loadreservation></app-loadreservation></tab>
+      </tabset>
+</section>
