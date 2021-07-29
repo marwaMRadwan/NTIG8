@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,7 +43,8 @@ import { LoadreservationComponent } from './userprofile/loadreservation/loadrese
     CommonModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), TabsModule.forRoot(), // ToastrModule added
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [
     {

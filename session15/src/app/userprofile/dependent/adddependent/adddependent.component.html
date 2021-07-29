@@ -1,1 +1,28 @@
-<p>adddependent works!</p>
+<section class="container my-3">
+    <div class="row" *ngIf="!isLoaded; else allDocs">
+        Loading .......
+    </div>
+    <ng-template #allDocs>
+        <div class="row">
+            <div class="col-4" *ngFor="let d of allDoctors | paginate: { id: 'doctors',
+            itemsPerPage: 10,
+            currentPage: p,
+            totalItems: count }">
+                <div class="p-3 border border-primary border-3">
+                    <!-- <img class="img-fluid" src="http://medical.mind-techs.com/storage/app/public/{{d.image}}"> -->
+                    <li>{{d.name}}</li>                    
+                </div>
+            </div>
+        </div>
+        <pagination-controls  id="doctors"
+        (pageChange)="pageChanged($event)"
+        (pageBoundsCorrection)="pageChanged($event)"    
+            
+        previousLabel="Previous"
+        nextLabel="Next"
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        screenReaderCurrentLabel="You're on page">
+</pagination-controls>
+    </ng-template>
+</section>
