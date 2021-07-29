@@ -1,18 +1,34 @@
-
 <div class="form">
     <div class="form__box">
-      <div class="form__left">
-        <div class="form__padding"><img class="form__image" src="https://i.pinimg.com/originals/8b/44/51/8b4451665d6b2139e29f29b51ffb1829.png"/></div>
-      </div>
       <div class="form__right">
         <div class="form__padding-right">
-          <form>
+          
+          <form [formGroup]="userData" (ngSubmit)="loginUser()">
             <h1 class="form__title">Member Login</h1>
-            <input class="form__email" type="text" placeholder="Email"/>
-            <input class="form__password" type="text" placeholder="******"/>
+            <div class="form__title" *ngIf="msg!=''">
+              data: {{msg}}
+            </div>
+            <input class="form__email" type="text" placeholder="Email" formControlName="email">
+            <div class="alert alert-danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+              <div *ngIf="email?.errors?.required">
+                email is required
+              </div>
+              <div *ngIf="email?.errors?.email">
+                email invalid format
+              </div>
+            </div>
+            <input class="form__password" type="text" placeholder="******" formControlName="password">
+            <div class="alert alert-danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+              <div *ngIf="password?.errors?.required">
+                password is required
+              </div>
+              <div *ngIf="password?.errors?.minlength">
+                min length error
+              </div>
+            </div>
+            
             <input class="form__submit-btn" type="submit" value="Login"/>
-          </form><span>Forgot <a class="form__link" href="#">Username</a><a> / </a><a class="form__link" href="#">Password</a></span>
-          <p> <a class="form__link" href="#">Create your account</a></p>
+          </form>
         </div>
       </div>
     </div>

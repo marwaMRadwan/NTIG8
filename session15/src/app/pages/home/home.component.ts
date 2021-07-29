@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { GlobalService } from 'src/app/services/global.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,12 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private toastr: ToastrService) {
+  constructor(private toastr: ToastrService, public _global:GlobalService, private _router:Router) {
+    _global.me().subscribe(
+      data=>console.log(data),
+      (e)=>  _router.navigate(['/login'])
+
+      )
   }
 
   showSuccess() {
