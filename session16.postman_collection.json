@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "901e221a-57a4-4e34-84c6-b012db576298",
+		"name": "session16",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register as paitent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "marwa radwan",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "marwa@techs.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "19101994Ab*",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "01060507985",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/signUp",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"marwa@techs.com\",\r\n    \"password\" : \"19101994Ab**\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load Roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/loadRoles/1",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"loadRoles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load Providers By Slug",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"role_id\" : \"Ray123mailinatorcom2341\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/LoadProvidersBySlug/1/0/10",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"LoadProvidersBySlug",
+						"1",
+						"0",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single provider by Slug",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/SingleDatabySlug/Abokoko4585jA/1",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"SingleDatabySlug",
+						"Abokoko4585jA",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load Appointments To Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL0VDb21tZXJjZVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxMDQ0MjM0NiwiZXhwIjoxNjEwNDQ1OTQ2LCJuYmYiOjE2MTA0NDIzNDYsImp0aSI6Ink1SFkwMGNwbVdZMnpBd0oiLCJzdWIiOjIyNTEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.KyFMUjpcD8J127JBXzVBD88HcXR3nz1lWMf9Y4etyNo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider_id\" : 2358\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/loadAppointmentsToUsers",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"loadAppointmentsToUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load User Reservations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9tZWRpY2FsLm1pbmQtdGVjaHMuY29tXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI3MTUyOTgzLCJuYmYiOjE2MjcxNTI5ODMsImp0aSI6IlNHQjNtcGFkUDNzaE5LTVEiLCJzdWIiOjI1MDcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.eRAKkNZA5HDno1L0-qhYCOroK5udw4WSLCHFEqFWB0I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"provider_id\" :3,\r\n    \"flag\"  : 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/loadUserReservations/1/0/10",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"loadUserReservations",
+						"1",
+						"0",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store Reservation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9tZWRpY2FsLm1pbmQtdGVjaHMuY29tXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjI3MTUyOTgzLCJuYmYiOjE2MjcxNTI5ODMsImp0aSI6IlNHQjNtcGFkUDNzaE5LTVEiLCJzdWIiOjI1MDcsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.eRAKkNZA5HDno1L0-qhYCOroK5udw4WSLCHFEqFWB0I",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"appointment_id\" : 629858 , \r\n    \"doctor_id\" : 2358 ,  \r\n    \"provider_id\" : 3   ,\r\n    \"date\" : \"2021-07-25T13:34:00.000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/storeReservation",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"storeReservation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load Days",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL0VDb21tZXJjZVwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYxMDQzODE4OCwiZXhwIjoxNjEwNDQxNzg4LCJuYmYiOjE2MTA0MzgxODgsImp0aSI6InAzd0xIZnJMS1lDZkFYN3IiLCJzdWIiOjIyNTEsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ._dJAeN4NrOYbXxh0YP8m1aknImlUEPjuSrmwMbpP6Hw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://medical.mind-techs.com/api/auth/loadDays/1",
+					"protocol": "http",
+					"host": [
+						"medical",
+						"mind-techs",
+						"com"
+					],
+					"path": [
+						"api",
+						"auth",
+						"loadDays",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

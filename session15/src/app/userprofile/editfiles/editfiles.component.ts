@@ -23,7 +23,8 @@ export class EditfilesComponent implements OnInit {
 console.log(x);
 if(this.file!=null){
   let formData = new FormData()
-  formData.append('files', this.file[0])
+  formData.append('profile', this.file[0])
+  formData.append('fileType','jpg')
   this._global.updateFileUser(formData).subscribe(data=>console.log(data))
 }
 

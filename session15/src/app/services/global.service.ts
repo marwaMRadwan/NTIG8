@@ -17,7 +17,7 @@ export class GlobalService {
   }
 
   updateFileUser(data:any):Observable<any>{
-    return this._http.post('http://medical.mind-techs.com/api/auth/updatePatientFile',data)
+    return this._http.post('http://localhost:3000/user/profile',data)
   }
   loadAllDocs(pageNum:any):Observable<any>{
     return this._http.post(`http://medical.mind-techs.com/api/auth/LoadProviders/1/${pageNum}/10`, {role_id:3})
