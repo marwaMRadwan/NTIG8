@@ -1,0 +1,10 @@
+<router-outlet></router-outlet>
+<div [appMyDirective]='a'>hello</div>
+
+<div *appXDirective="x">
+    hi
+</div>
+
+{{5|myPipe:3}}
+
+{{'hello'|uppercase}}
