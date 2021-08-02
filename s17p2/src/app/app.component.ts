@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SService } from './s.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,5 @@ import { SService } from './s.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'session17';
-  a="a"
-  x:boolean=false
-  constructor(public s:SService){}
+  title = 's17p2';
 }
