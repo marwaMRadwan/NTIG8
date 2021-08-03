@@ -32,6 +32,7 @@ getSingleCourse = function(args){
 }
 
 getCoursesByTitle = function(args){
+    console.log(args)
     if(args.title){
         return data.filter(c=> c.title == args.title)
     }
