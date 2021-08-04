@@ -1,1 +1,32 @@
-<p>student-list works!</p>
+<section class="my-5 container">
+    <h2 class="text-primary h4 my-5 text-center">All Student</h2>
+    <div *ngIf="isNotLoaded; else loaded">Loading.......</div>
+    <ng-template #loaded>
+        <div class="alert alert-danger" *ngIf="noData">No Stuents to show</div>
+        <table class="table table-stripped" *ngIf="!noData">
+            <thead>
+                <th>#</th>
+                <th>first name</th>
+                <th>last name</th>
+                <th>email</th>
+                <th>mobile phone</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let single of data">
+                    <td>{{single.$key}}</td>
+                    <td>{{single.firstName}}</td>
+                    <td>{{single.lastName}}</td>
+                    <td>{{single.email}}</td>
+                    <td>{{single.mobileNumber}}</td>
+                    <td>
+                        <button class="btn btn-success mx-2" routerLink="">show</button>
+                        <button class="btn btn-success mx-2" routerLink="">edit</button>
+                        <button class="btn btn-success mx-2" (click)="deleteStudent(single)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </ng-template>
+</section>

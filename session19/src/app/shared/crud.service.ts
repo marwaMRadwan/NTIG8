@@ -25,6 +25,22 @@ export class CrudService {
     return this.studentsRef
   }
 
+  GetSingleStudent(id:string){
+    this.studentRef = this.db.object('student-list/'+id)
+    return this.studentRef
+  }
+  UpdateStudent(student:Student){
+    this.studentRef.update({
+      firstName :student.firstName,
+      lastName: student.lastName,
+      email:student.email,
+      mobileNumber:student.mobileNumber
+    })
+  }
+  DeleteStudent(id:string|any){
+    this.studentRef = this.db.object('student-list/'+id)
+    this.studentRef.remove()
+  }
 }
 
 

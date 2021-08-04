@@ -8,22 +8,37 @@ import { Student } from '../shared/student';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-  data:Student[]=[]
+  
+  data:Student[] = []
+  isNotLoaded: boolean = true
+  noData : boolean = false
+  
   constructor(private _crud:CrudService) { }
 
   ngOnInit(): void {
-this._crud.GetStudentList().snapshotChanges().subscribe(
-  (d)=> {
-    console.log(d)
-    d.forEach(ele=>{
-      let x:any = ele.payload.toJSON()
-      x['$key']= ele.key
-      this.data.push(x)
+    this.dataSatatus()
+    this._crud.GetStudentList().snapshotChanges().subscribe(data=>{
+      // this.isNotLoaded = false
+      // if(data.length ==0 ) this.noData=true
+      data.forEach(s=>{
+        let single:any = s.payload.toJSON()
+        single['$key'] = s.key
+        this.data.push(single as Student)
+      })
     })
-    console.log(this.data)
-  }
-  // this.data= d
-)
   }
 
+  dataSatatus(){
+    this._crud.GetStudentList().valueChanges().subscribe( data=>{
+      this.isNotLoaded = false
+      if(data.length ==0 ) this.noData=true
+    }
+    )
+  }
+
+  deleteStudent(data:Student){
+    if(window.confirm(`consirm delete ${data.firstName} student`)){
+      this._crud.DeleteStudent(data.$key)
+    }
+  }
 }
