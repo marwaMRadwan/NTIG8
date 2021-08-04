@@ -21,7 +21,7 @@
                     <td>{{single.mobileNumber}}</td>
                     <td>
                         <button class="btn btn-success mx-2" routerLink="">show</button>
-                        <button class="btn btn-success mx-2" routerLink="">edit</button>
+                        <button class="btn btn-success mx-2" routerLink="/editStudent/{{single.$key}}">edit</button>
                         <button class="btn btn-success mx-2" (click)="deleteStudent(single)">delete</button>
                     </td>
                 </tr>
