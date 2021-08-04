@@ -1,0 +1,4 @@
+id = 5        id =10   chatStack =null
+chatStack = 2     id =5    id =10            msgs=> 2  [{from :2 to 5   txt}]
+
+setSatatus =>socket emit stauts  => login=> setSatatus  logout=> setSatatus
