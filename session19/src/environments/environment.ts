@@ -4,13 +4,14 @@
 
 export const environment = {
   production: false,
-   firebaseConfig : {
-    apiKey: "AIzaSyD2ItLayxafH0FyeN8X1nuvXNV0Swn-NEI",
-    authDomain: "ntig8-5509c.firebaseapp.com",
-    projectId: "ntig8-5509c",
-    storageBucket: "ntig8-5509c.appspot.com",
-    messagingSenderId: "164437333233",
-    appId: "1:164437333233:web:d584ed099edf9211964550"
+  firebaseConfig :{
+    apiKey: "AIzaSyB1mqSw7pNJTDyJ1al93oqJ9bsKI7qp3fw",
+  authDomain: "mypronti8.firebaseapp.com",
+  databaseURL: "https://mypronti8-default-rtdb.firebaseio.com",
+  projectId: "mypronti8",
+  storageBucket: "mypronti8.appspot.com",
+  messagingSenderId: "313088275089",
+  appId: "1:313088275089:web:858cd6756c75935b668530"
   }
 }
 

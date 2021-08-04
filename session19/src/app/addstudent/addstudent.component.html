@@ -1,1 +1,48 @@
-<p>addstudent works!</p>
+<section class="my-5 container">
+    <h2 class="text-primary h4 my-5">Add New Student</h2>
+    <form [formGroup]="studentForm" (ngSubmit)="addNewStudent()"> 
+        <div class="row mb-3">
+            <div class="col-6">
+                <input placeholder="First Name" formControlName="firstName" class="form-control">
+                <p *ngIf="(firstName?.dirty|| isSubmitted) && firstName?.errors?.required" class="alert alert-danger my-2">
+                    <sup>*</sup> First Name is required
+                </p>
+                <p *ngIf="(firstName?.dirty || isSubmitted) && firstName?.errors?.minlength" class="alert alert-danger my-2">
+                    <sup>*</sup> First Name must be more than 5 characters
+                </p>
+            </div>
+            <div class="col-6">
+                <input placeholder="Last Name" formControlName="lastName"  class="form-control">
+                <p *ngIf="(lastName?.dirty || isSubmitted) && lastName?.errors?.required" class="alert alert-danger my-2">
+                    <sup>*</sup> Last Name is required
+                </p>
+                <p *ngIf="(lastName?.dirty ||isSubmitted) && lastName?.errors?.minlength" class="alert alert-danger my-2">
+                    <sup>*</sup> Last Name must be more than 5 characters
+                </p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-6">
+                <input placeholder="Email" formControlName="email"  class="form-control">
+                <p *ngIf="(email?.dirty || isSubmitted) && email?.errors?.required" class="alert alert-danger my-2">
+                    <sup>*</sup> Please insert valid email
+                </p>
+                <p *ngIf="(email?.dirty || isSubmitted) && email?.errors?.email" class="alert alert-danger my-2">
+                    <sup>*</sup> Please insert valid email
+                </p>
+            </div>
+            <div class="col-6">
+                <input placeholder="Phone Number" formControlName="mobileNumber" class="form-control">
+                <p *ngIf="(mobileNumber?.dirty || isSubmitted) && mobileNumber?.errors?.required" class="alert alert-danger my-2">
+                    <sup>*</sup> Phone number is required
+                </p>
+                <p *ngIf="mobileNumber?.dirty && mobileNumber?.errors?.minlength" class="alert alert-danger my-2">
+                    <sup>*</sup> Phone number must be 11 numbers
+                </p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Add Now</button>
+        </div>
+    </form>
+</section>

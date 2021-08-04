@@ -13,7 +13,15 @@ export class StudentListComponent implements OnInit {
 
   ngOnInit(): void {
 this._crud.GetStudentList().snapshotChanges().subscribe(
-  d=> console.log(d)
+  (d)=> {
+    console.log(d)
+    d.forEach(ele=>{
+      let x:any = ele.payload.toJSON()
+      x['$key']= ele.key
+      this.data.push(x)
+    })
+    console.log(this.data)
+  }
   // this.data= d
 )
   }
