@@ -60,7 +60,33 @@ test("GET /api/posts/:id", async()=>{
         expect(response.body.title).toBe(post.title)
         expect(response.body.content).toBe(post.content)
     })
-  
 })
-//patch('/posts/:id'
-// delete('/posts/:id'
+
+test("PATCH /api/posts/:id", async()=>{
+    let post = await Post.create({title:"t1", content:"c1"})
+    let data = { title:"t2", content:"c2"}
+    await supertest(app).patch("/api/posts/"+post.id)
+    .send(data)
+    .expect(200)
+    .then(async(response)=>{
+        expect(response.body._id).toBe(post.id)
+        expect(response.body.title).toBe(data.title)
+        expect(response.body.content).toBe(data.content)
+
+        let newPost = await Post.findOne({_id: response.body._id})
+        expect(newPost).toBeTruthy()
+        expect(newPost.title).toBe(data.title)
+
+        expect(newPost.content).toBe(data.content)
+
+    })
+})
+test("DELETE /api/posts/:id", async()=>{
+    const post = await Post.create({title:"t1", content:"c1"})
+    await supertest(app).delete("/api/posts/"+post._id)
+    .expect(200)
+    .then(async()=>{
+        expect(await Post.findOne({_id:post.id})).toBeFalsy()
+    })
+})
+
